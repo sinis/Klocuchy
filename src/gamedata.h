@@ -6,8 +6,6 @@
 #include <map>
 #include <string>
 
-#define DATADIR "data/"
-
 class GameData
 {
 public:

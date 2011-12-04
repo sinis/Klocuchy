@@ -1,5 +1,6 @@
 #include "gamedata.h"
 #include <SDL/SDL_image.h>
+#include "defines.h"
 
 GameData *GameData::_instance = 0;
 

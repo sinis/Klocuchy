@@ -18,6 +18,7 @@ public:
     bool Initialize();
     void Unload();
     int Exec();
+    SDL_Surface *Screen() { return _screen; }
 
     static Klocuchy *Instance() { return _instance; }
 
