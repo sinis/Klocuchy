@@ -3,6 +3,7 @@
 
 #include <SDL/SDL.h>
 #include "gamedata.h"
+#include "mainmenu.h"
 
 class Klocuchy
 {
@@ -35,6 +36,7 @@ private:
     // TODO:
     // GameData, MainMenu, Game.
     GameData *_gameData;
+    MainMenu *_mainMenu;
 };
 
 #endif // KLOCUCHY_H

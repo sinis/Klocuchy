@@ -39,6 +39,7 @@ private:
     int _height;
     State _state;
     SDL_Surface *_screen;
+    SDL_Surface *_image;
     SDL_Surface *_label;
 };
 

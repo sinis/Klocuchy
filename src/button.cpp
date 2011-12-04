@@ -12,6 +12,7 @@ Button::Button():
     _width(0), _height(0),
     _state(MouseOut),
     _screen(Klocuchy::Instance()->Screen()),
+    _image(0),
     _label(0)
 {}
 
@@ -74,6 +75,7 @@ void Button::SetEnabled(bool enabled)
 {
     _enabled = enabled;
     SetText(_text);
+    _state = MouseOut;
 }
 
 bool Button::IsMouseOver(int x, int y)
@@ -83,40 +85,51 @@ bool Button::IsMouseOver(int x, int y)
 
 void Button::OnMouseOver()
 {
-    _state = MouseOver;
+    if (_enabled)
+        _state = MouseOver;
 }
 
 void Button::OnMouseOut()
 {
-    _state = MouseOut;
+    if (_enabled)
+        _state = MouseOut;
 }
 
 void Button::OnPress()
 {
-    _state = Pressed;
+    if (_enabled)
+        _state = Pressed;
 }
 
-void Show()
+void Button::Show()
 {
     SDL_Rect src, dst;
-    src.x = 0;
+    src.w = _width;
     src.y = 0;
     src.h = _height;
     dst.x = _x;
     dst.y = _y;
+    //dst.w = src.w;
+    //dst.h = src.h;
 
     switch (_state)
     {
     case MouseOut:
-        src.w = 0;
+        src.x = 0;
         break;
     case MouseOver:
-        src.w = _width;
+        src.x = _width;
         break;
     case Pressed:
-        src.w = _width*2;
+        src.x = _width*2;
         break;
     }
 
+    // Image.
     SDL_BlitSurface(_image, &src, _screen, &dst);
+
+    // Label.
+    dst.x = (_width - _label->w)/2 + _x;
+    dst.y = (_height - _label->h)/2 + _y;
+    SDL_BlitSurface(_label, 0, _screen, &dst);
 }

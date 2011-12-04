@@ -13,13 +13,17 @@ LIBS += -lSDL -lSDL_image -lSDL_ttf
 SOURCES += src/main.cpp \
     src/klocuchy.cpp \
     src/gamedata.cpp \
-    src/button.cpp
+    src/button.cpp \
+    src/mainmenu.cpp
 
 HEADERS += \
     src/klocuchy.h \
     src/gamedata.h \
     src/button.h \
-    src/defines.h
+    src/defines.h \
+    src/mainmenu.h
+
+
 
 
 

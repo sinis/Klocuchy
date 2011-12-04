@@ -7,7 +7,8 @@ Klocuchy *Klocuchy::_instance = 0;
 
 Klocuchy::Klocuchy():
     _screen(0),
-    _gameData(0)
+    _gameData(0),
+    _mainMenu(0)
 {
     _instance = this;
 }
@@ -87,8 +88,12 @@ bool Klocuchy::InitGame()
 {
     _gameData = new GameData;
 
+    _mainMenu = new MainMenu;
+    if (!_mainMenu->Initialize())
+        return false;
+
     // TODO:
-    // MainMenu, Game
+    // Game
 
     return true;
 }
@@ -96,8 +101,9 @@ bool Klocuchy::InitGame()
 void Klocuchy::UnloadGame()
 {
     // TODO:
-    // MainMenu, Game
+    // Game
 
+    delete _mainMenu;
     delete _gameData;
 }
 
@@ -111,5 +117,7 @@ void Klocuchy::Unload()
 
 int Klocuchy::Exec()
 {
+    // TODO
+    _mainMenu->Exec();
     return 0;
 }
