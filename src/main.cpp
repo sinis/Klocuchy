@@ -2,6 +2,10 @@
 
 int main(int argc, char *argv[])
 {
+    // Unused parameter warning.
+    argc = argc;
+    argv = argv;
+
     Klocuchy klocuchy;
     int ret;
 

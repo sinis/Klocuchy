@@ -5,13 +5,19 @@
 QT -= core gui
 CONFIG -= qt
 
+OBJECTS_DIR = tmp
+
 LIBS += -lSDL -lSDL_image -lSDL_ttf
 
 # Input
 SOURCES += src/main.cpp \
-    src/klocuchy.cpp
+    src/klocuchy.cpp \
+    src/gamedata.cpp
 
 HEADERS += \
-    src/klocuchy.h
+    src/klocuchy.h \
+    src/gamedata.h
+
+
 
 

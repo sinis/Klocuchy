@@ -1,4 +1,4 @@
-#include "src/klocuchy.h"
+#include "klocuchy.h"
 #include <iostream>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_ttf.h>
@@ -6,7 +6,8 @@
 Klocuchy *Klocuchy::_instance = 0;
 
 Klocuchy::Klocuchy():
-    _screen(0)
+    _screen(0),
+    _gameData(0)
 {
     _instance = this;
 }
@@ -22,7 +23,7 @@ bool Klocuchy::InitSDL()
         return false;
     }
 
-    _screen = SDL_SetVideoMode(width, height, 32, SDL_HWSURFACE);
+    _screen = SDL_SetVideoMode(Width, Height, 32, SDL_HWSURFACE);
     if (!_screen)
     {
         std::cerr << "SDL_SetVideoMode() failed.\n";
@@ -84,13 +85,20 @@ bool Klocuchy::Initialize()
 
 bool Klocuchy::InitGame()
 {
-    // TODO
+    _gameData = new GameData;
+
+    // TODO:
+    // MainMenu, Game
+
     return true;
 }
 
 void Klocuchy::UnloadGame()
 {
-    // TODO
+    // TODO:
+    // MainMenu, Game
+
+    delete _gameData;
 }
 
 void Klocuchy::Unload()

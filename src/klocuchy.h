@@ -2,6 +2,7 @@
 #define KLOCUCHY_H
 
 #include <SDL/SDL.h>
+#include "gamedata.h"
 
 class Klocuchy
 {
@@ -10,15 +11,15 @@ public:
     ~Klocuchy();
 
     enum {
-        width = 240,
-        height = 320
+        Width = 240,
+        Height = 320
     };
 
     bool Initialize();
     void Unload();
     int Exec();
 
-    static Klocuchy *Instance();
+    static Klocuchy *Instance() { return _instance; }
 
 private:
     bool InitSDL();
@@ -32,6 +33,7 @@ private:
     SDL_Surface *_screen;
     // TODO:
     // GameData, MainMenu, Game.
+    GameData *_gameData;
 };
 
 #endif // KLOCUCHY_H
