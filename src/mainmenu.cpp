@@ -201,8 +201,8 @@ MainMenu::ButtonID MainMenu::OnMouseClick(int x, int y)
         id = Quit;
     }
 
-    if (id != None)
-        SDL_Delay(0.500);
+    //if (id != None)
+    //    SDL_Delay(500);
 
     return id;
 }

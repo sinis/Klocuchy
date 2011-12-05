@@ -4,6 +4,7 @@
 #define DATADIR "data/"
 #define FONT "font.ttf"
 #define BUTTON "button.png"
+#define BACKGROUND "bg.png"
 
 #define BLUE "blue.png"
 #define GREEN "green.png"
