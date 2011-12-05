@@ -32,6 +32,8 @@ bool Klocuchy::InitSDL()
         return false;
     }
 
+    SDL_WM_SetCaption("Klocuchy made by Sinis", 0);
+
     return true;
 }
 
@@ -117,7 +119,29 @@ void Klocuchy::Unload()
 
 int Klocuchy::Exec()
 {
+    bool quit = false;
     // TODO
-    _mainMenu->Exec();
+
+    while (!quit)
+    {
+        switch (_mainMenu->Exec())
+        {
+        case MainMenu::Start:
+            break;
+        case MainMenu::Resume:
+            break;
+        case MainMenu::Highscore:
+            break;
+        case MainMenu::About:
+            break;
+        case MainMenu::Quit:
+            quit = true;
+            break;
+        default:
+            // Pfrh, warnings.
+            break;
+        }
+    }
+
     return 0;
 }

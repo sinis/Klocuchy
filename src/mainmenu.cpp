@@ -163,6 +163,7 @@ MainMenu::ButtonID MainMenu::OnMouseClick(int x, int y)
     {
         _start->OnPress();
         id = Start;
+        _resume->SetEnabled(true);
     }
 
     if (_resume->IsEnabled() && _resume->IsMouseOver(x, y))
