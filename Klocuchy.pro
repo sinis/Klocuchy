@@ -15,7 +15,8 @@ SOURCES += src/main.cpp \
     src/gamedata.cpp \
     src/button.cpp \
     src/mainmenu.cpp \
-    src/timer.cpp
+    src/timer.cpp \
+    src/tile.cpp
 
 HEADERS += \
     src/klocuchy.h \
@@ -23,7 +24,10 @@ HEADERS += \
     src/button.h \
     src/defines.h \
     src/mainmenu.h \
-    src/timer.h
+    src/timer.h \
+    src/tile.h
+
+
 
 
 
