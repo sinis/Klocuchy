@@ -1,6 +1,7 @@
 #include "mainmenu.h"
 #include "klocuchy.h"
 #include "defines.h"
+#include "timer.h"
 
 MainMenu::MainMenu():
     _screen(0),
@@ -83,9 +84,11 @@ MainMenu::ButtonID MainMenu::Exec()
 {
     ButtonID id = None;
     SDL_Event event;
+    Timer timer(Second/MenuFPS);
     bool quit = false;
 
     Show();
+    timer.Start();
     while (!quit)
     {
         while (SDL_PollEvent(&event))
@@ -105,8 +108,16 @@ MainMenu::ButtonID MainMenu::Exec()
                     quit = true;
                 break;
             }
+        }
 
+        if (timer.Finished())
+        {
             Show();
+            timer.Start();
+        }
+        else
+        {
+            SDL_Delay(Second/MenuFPS - timer.Elapsed());
         }
     }
 

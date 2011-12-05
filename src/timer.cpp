@@ -26,3 +26,8 @@ void Timer::Resume()
 {
     _lastTick = SDL_GetTicks() + (_lastTick - _pausedAt);
 }
+
+int Timer::Elapsed()
+{
+    return SDL_GetTicks() - _lastTick;
+}

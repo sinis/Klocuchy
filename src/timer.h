@@ -13,6 +13,7 @@ public:
     bool Finished();
     void Pause();
     void Resume();
+    int Elapsed();
 
 private:
     int _interval;

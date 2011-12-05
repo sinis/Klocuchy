@@ -21,7 +21,9 @@ public:
 
     enum {
         ButtonWidth = 120,
-        ButtonHeight = 60
+        ButtonHeight = 60,
+        Second = 1000,
+        MenuFPS = 30
     };
 
     bool Initialize();
