@@ -14,14 +14,18 @@ SOURCES += src/main.cpp \
     src/klocuchy.cpp \
     src/gamedata.cpp \
     src/button.cpp \
-    src/mainmenu.cpp
+    src/mainmenu.cpp \
+    src/timer.cpp
 
 HEADERS += \
     src/klocuchy.h \
     src/gamedata.h \
     src/button.h \
     src/defines.h \
-    src/mainmenu.h
+    src/mainmenu.h \
+    src/timer.h
+
+
 
 
 
