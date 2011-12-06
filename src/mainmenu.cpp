@@ -121,6 +121,9 @@ MainMenu::ButtonID MainMenu::Exec()
         }
     }
 
+    Show();
+    SDL_Delay(200);
+
     return id;
 }
 
@@ -200,9 +203,6 @@ MainMenu::ButtonID MainMenu::OnMouseClick(int x, int y)
         _quit->OnPress();
         id = Quit;
     }
-
-    //if (id != None)
-    //    SDL_Delay(500);
 
     return id;
 }

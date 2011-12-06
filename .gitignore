@@ -1,0 +1,4 @@
+*.o
+Klocuchy
+*.pro.user
+Makefile
