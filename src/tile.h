@@ -17,6 +17,10 @@ public:
         Yellow
     };
 
+    enum {
+        Size = 15
+    };
+
     Tile(Color color = None);
 
     void SetColor(Color color);

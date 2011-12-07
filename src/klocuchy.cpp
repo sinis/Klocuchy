@@ -2,6 +2,8 @@
 #include <iostream>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_ttf.h>
+#include <cstdlib>
+#include <ctime>
 
 Klocuchy *Klocuchy::_instance = 0;
 
@@ -82,6 +84,8 @@ bool Klocuchy::Initialize()
         SDL_Quit();
         return false;
     }
+
+    srand(time(0));
 
     return true;
 }

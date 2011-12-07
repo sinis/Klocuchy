@@ -19,7 +19,8 @@ SOURCES += src/main.cpp \
     src/tile.cpp \
     src/background.cpp \
     src/drawer.cpp \
-    src/frame.cpp
+    src/frame.cpp \
+    src/tetramino.cpp
 
 HEADERS += \
     src/klocuchy.h \
@@ -31,7 +32,10 @@ HEADERS += \
     src/tile.h \
     src/background.h \
     src/drawer.h \
-    src/frame.h
+    src/frame.h \
+    src/tetramino.h
+
+
 
 
 
