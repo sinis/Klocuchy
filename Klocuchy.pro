@@ -20,7 +20,8 @@ SOURCES += src/main.cpp \
     src/background.cpp \
     src/drawer.cpp \
     src/frame.cpp \
-    src/tetramino.cpp
+    src/tetramino.cpp \
+    src/nextview.cpp
 
 HEADERS += \
     src/klocuchy.h \
@@ -33,7 +34,10 @@ HEADERS += \
     src/background.h \
     src/drawer.h \
     src/frame.h \
-    src/tetramino.h
+    src/tetramino.h \
+    src/nextview.h
+
+
 
 
 

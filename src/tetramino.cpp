@@ -22,13 +22,18 @@ Tetramino::~Tetramino()
 
 void Tetramino::Show()
 {
+    Show(_x, _y);
+}
+
+void Tetramino::Show(int x, int y)
+{
     for (int i = 0; i < 4; ++i)
     {
         for (int j = 0; j < 4; ++j)
         {
             if (_tiles[i][j].GetColor() != Tile::None)
-                _tiles[i][j].Show(Tile::Size * i + _x,
-                                  Tile::Size * j + _y);
+                _tiles[i][j].Show(Tile::Size * i + x,
+                                  Tile::Size * j + y);
         }
     }
 }

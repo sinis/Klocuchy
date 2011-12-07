@@ -26,6 +26,7 @@ public:
     ~Tetramino();
 
     void Show();
+    void Show(int x, int y);
     void Move(Direction dir);
     void Rotate(Direction dir);
     Tile **GetTiles() { return _tiles; }
