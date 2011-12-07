@@ -21,7 +21,8 @@ SOURCES += src/main.cpp \
     src/drawer.cpp \
     src/frame.cpp \
     src/tetramino.cpp \
-    src/nextview.cpp
+    src/nextview.cpp \
+    src/tetrion.cpp
 
 HEADERS += \
     src/klocuchy.h \
@@ -35,7 +36,10 @@ HEADERS += \
     src/drawer.h \
     src/frame.h \
     src/tetramino.h \
-    src/nextview.h
+    src/nextview.h \
+    src/tetrion.h
+
+
 
 
 
