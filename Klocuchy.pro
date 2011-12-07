@@ -17,7 +17,8 @@ SOURCES += src/main.cpp \
     src/mainmenu.cpp \
     src/timer.cpp \
     src/tile.cpp \
-    src/background.cpp
+    src/background.cpp \
+    src/drawer.cpp
 
 HEADERS += \
     src/klocuchy.h \
@@ -27,7 +28,10 @@ HEADERS += \
     src/mainmenu.h \
     src/timer.h \
     src/tile.h \
-    src/background.h
+    src/background.h \
+    src/drawer.h
+
+
 
 
 
