@@ -112,5 +112,35 @@ void Tetramino::SetShape(Shape shape)
 
 void Tetramino::Rotate(Direction dir)
 {
-    // TODO
+    if (dir == Down)
+        return;
+
+    Tile::Color color[4][4];
+
+    // Copy colors to temporary matrix.
+    if (dir == Left)
+    {
+        for (int i = 0; i < 4; ++i)
+        {
+            for (int j = 0; j < 4; ++j)
+            {
+                color[i][3-j] = _tiles[j][i].GetColor();
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i < 4; ++i)
+        {
+            for (int j = 0; j < 4; ++j)
+            {
+                color[3-i][3-i] = _tiles[j][i].GetColor();
+            }
+        }
+    }
+
+    // Copy colors back to tetramino.
+    for (int i = 0; i < 4; ++i)
+        for (int j = 0; j < 4; ++j)
+            _tiles[i][j].SetColor(color[i][j]);
 }
