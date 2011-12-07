@@ -2,12 +2,12 @@
 
 Uint32 Drawer::GetPixel(SDL_Surface *surface, int x, int y)
 {
-    return static_cast<Uint32*>(surface->pixels) [x + x*y];
+    return static_cast<Uint32*>(surface->pixels) [x + surface->w*y];
 }
 
 void Drawer::PutPixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
 {
-    static_cast<Uint32*>(surface->pixels) [x + x*y] = pixel;
+    static_cast<Uint32*>(surface->pixels) [x + surface->w*y] = pixel;
 }
 
 void Drawer::DrawVerticalLine(SDL_Surface *surface, int x, int y1, int y2, Uint32 color)
