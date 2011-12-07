@@ -13,5 +13,6 @@
 #define VIOLET "violet.png"
 #define GREY "grey.png"
 #define YELLOW "yellow.png"
+#define WHITE "white.png"
 
 #endif // DEFINES_H

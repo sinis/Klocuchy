@@ -40,6 +40,8 @@ void Tile::SetColor(Color color)
     case Yellow:
         file = YELLOW;
         break;
+    case White:
+        file = WHITE;
     default:
         file = "";
         break;

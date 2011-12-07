@@ -14,7 +14,8 @@ public:
         Red,
         Violet,
         Grey,
-        Yellow
+        Yellow,
+        White
     };
 
     enum {
