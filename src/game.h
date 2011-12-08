@@ -17,6 +17,12 @@ public:
         FPS = 30
     };
 
+    enum State {
+        NotStarted,
+        InProgress,
+        Paused
+    };
+
     Game();
     ~Game();
 
@@ -24,6 +30,7 @@ public:
     void Pause();
     void Resume();
     int GetScore() const { return _score; }
+    State GetState() const { return _state; }
 
 protected:
     void Play();
@@ -38,6 +45,7 @@ private:
     ScoreView *_scoreView;
     Timer *_timer;
     int _score;
+    State _state;
 };
 
 #endif // GAME_H

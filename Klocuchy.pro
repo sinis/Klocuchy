@@ -24,7 +24,8 @@ SOURCES += src/main.cpp \
     src/tetramino.cpp \
     src/nextview.cpp \
     src/tetrion.cpp \
-    src/scoreview.cpp
+    src/scoreview.cpp \
+    src/game.cpp
 
 HEADERS += \
     src/klocuchy.h \
@@ -40,5 +41,8 @@ HEADERS += \
     src/tetramino.h \
     src/nextview.h \
     src/tetrion.h \
-    src/scoreview.h
+    src/scoreview.h \
+    src/game.h
+
+
 
