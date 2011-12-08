@@ -7,6 +7,7 @@ CONFIG -= qt
 
 OBJECTS_DIR = tmp
 
+win32:LIBS += SDLmain
 LIBS += -lSDL -lSDL_image -lSDL_ttf
 
 # Input
@@ -40,8 +41,11 @@ HEADERS += \
     src/nextview.h \
     src/tetrion.h \
     src/scoreview.h
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ad1638b656ecf6267329f562abf77034a5493b2d
 
 
 
