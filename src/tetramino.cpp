@@ -149,3 +149,10 @@ void Tetramino::Rotate(Direction dir)
         for (int j = 0; j < 4; ++j)
             _tiles[i][j].SetColor(color[i][j]);
 }
+
+Tile *Tetramino::At(int i, int j)
+{
+    if (i > 3 || j > 3)
+        return 0;
+    return &_tiles[i][j];
+}

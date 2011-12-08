@@ -2,6 +2,7 @@
 #define TETRION_H
 
 #include <SDL/SDL.h>
+#include <vector>
 #include "frame.h"
 #include "tile.h"
 #include "tetramino.h"
@@ -24,6 +25,9 @@ public:
     bool Collides(Tetramino *tetramino);
     void Adapt(Tetramino *tetramino);
     int Check();
+
+protected:
+    void RemoveRow(int row);
 
 private:
     SDL_Surface *_screen;

@@ -30,6 +30,7 @@ public:
     void Move(Direction dir);
     void Rotate(Direction dir);
     Tile **GetTiles() { return _tiles; }
+    Tile *At(int i, int j);
     int GetX() const { return _x; }
     int GetY() const { return _y; }
     void Reset();

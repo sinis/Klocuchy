@@ -1,11 +1,7 @@
 #include "klocuchy.h"
 
-int main(int argc, char *argv[])
+int main(int, char **)
 {
-    // Unused parameter warning.
-    argc = argc;
-    argv = argv;
-
     Klocuchy klocuchy;
     int ret;
 
