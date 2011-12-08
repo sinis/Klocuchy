@@ -5,7 +5,7 @@
 Tetramino::Tetramino():
     _screen(Klocuchy::Instance()->Screen()),
     _tiles(0),
-    _x(0), _y(0)
+    _x(3), _y(0)
 {
     _tiles = new Tile*[4];
     for (int i = 0; i < 4; ++i)
@@ -32,8 +32,8 @@ void Tetramino::Show(int x, int y)
         for (int j = 0; j < 4; ++j)
         {
             if (_tiles[i][j].GetColor() != Tile::None)
-                _tiles[i][j].Show(Tile::Size * i + x,
-                                  Tile::Size * j + y);
+                _tiles[i][j].Show(Tile::Size * (i + x),
+                                  Tile::Size * (j + y));
         }
     }
 }
@@ -55,6 +55,8 @@ void Tetramino::Reset()
     int shape = rand() % static_cast<int>(Shapes);
     CleanTiles();
     SetShape(static_cast<Shape>(shape));
+    _x = 3;
+    _y = 0;
 }
 
 void Tetramino::CleanTiles()

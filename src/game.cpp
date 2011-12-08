@@ -13,8 +13,8 @@ Game::Game():
     _state(NotStarted)
 {
     _tetrion->SetPosition(0, 0);
-    _nextView->SetPosition(_screen->w - (Tile::Size*4+4), 0);
-    _scoreView->SetPosition(_screen->w - (Tile::Size*4+4),
+    _nextView->SetPosition(Tile::Size*Tetrion::TilesInRow+10, 0);
+    _scoreView->SetPosition(Tile::Size*Tetrion::TilesInRow+10,
                             _screen->h - (Tile::Size*4+4));
     _timer->SetInterval(InitialTiming);
 }
@@ -61,6 +61,9 @@ void Game::Reset()
     _current->Reset();
     _next->Reset();
     _state = NotStarted;
+    _score = 0;
+    _scoreView->SetScore(0);
+    _nextView->SetTetramino(_next);
 }
 
 void Game::Play()
@@ -84,6 +87,7 @@ void Game::Play()
                 {
                 case SDLK_ESCAPE:
                     play = false;
+                    Pause();
                     break;
                 case SDLK_UP:
                     _current->Rotate(Tetramino::Left);
@@ -189,7 +193,9 @@ void Game::Play()
         // Draw everything.
         if (fps.Finished())
         {
+            SDL_FillRect(_screen, 0, 0);
             _tetrion->Show();
+            _current->Show();
             _nextView->Show();
             _scoreView->Show();
             SDL_Flip(_screen);

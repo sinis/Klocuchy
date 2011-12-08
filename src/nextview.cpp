@@ -1,4 +1,5 @@
 #include "nextview.h"
+#include <SDL/SDL.h>
 #include "klocuchy.h"
 #include "tile.h"
 
@@ -9,6 +10,8 @@ NextView::NextView():
     _tetramino(0)
 {
     _frame->SetSize(Tile::Size*4+4, Tile::Size*4+4);
+    _frame->SetColor(SDL_MapRGB(_screen->format, 200, 200, 200),
+                     SDL_MapRGB(_screen->format, 100, 100, 100));
 }
 
 NextView::~NextView()
@@ -25,5 +28,6 @@ void NextView::SetPosition(int x, int y)
 
 void NextView::Show()
 {
+    _frame->Show();
     _tetramino->Show(_x, _y);
 }

@@ -55,7 +55,11 @@ void Tile::SetColor(Color color)
             std::cerr << "Tile::SetColor() - could not load " << file << std::endl;
             _color = None;
         }
-        else _color = color;
+        else
+        {
+            _color = color;
+            _image = col;
+        }
     }
     else _color = None;
 }

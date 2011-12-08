@@ -66,7 +66,7 @@ bool Tetrion::Collides(Tetramino *tetramino)
         {
             if (tetramino->At(i, j)->GetColor() != Tile::None)
             {
-                if (i+dx < 0 || i+dy >= TilesInRow ||
+                if (i+dx < 0 || i+dx >= TilesInRow ||
                     j+dy < 0 || j+dy >= TilesInCol)
                     return true;
                 else if (_tetrion[i+dx][j+dy].GetColor() != Tile::None)
