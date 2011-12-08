@@ -131,7 +131,7 @@ int Tetrion::Check()
     score = rows.size()*rows.size();
 
     if (!score)
-        return;
+        return score;
 
     // Mark tiles.
     for (unsigned int i = 0; i < rows.size(); ++i)
