@@ -166,3 +166,10 @@ void Tetrion::RemoveRow(int row)
     for (int i = 0; i < TilesInRow; ++i)
         _tetrion[i][0].SetColor(Tile::None);
 }
+
+void Tetrion::Clear()
+{
+    for (int i = 0; i < TilesInRow; ++i)
+        for (int j = 0; j < TilesInCol; ++j)
+            _tetrion[i][j].SetColor(Tile::None);
+}

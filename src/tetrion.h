@@ -25,6 +25,7 @@ public:
     bool Collides(Tetramino *tetramino);
     bool Adapt(Tetramino *tetramino);
     int Check();
+    void Clear();
 
 protected:
     void RemoveRow(int row);
