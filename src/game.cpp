@@ -187,9 +187,17 @@ void Game::Play()
         }
 
         // Draw everything.
-        _tetrion->Show();
-        _nextView->Show();
-        _scoreView->Show();
-        SDL_Flip(_screen);
+        if (fps.Finished())
+        {
+            _tetrion->Show();
+            _nextView->Show();
+            _scoreView->Show();
+            SDL_Flip(_screen);
+            fps.Start();
+        }
+        else
+        {
+            SDL_Delay(1000/FPS - fps.Elapsed());
+        }
     }
 }
