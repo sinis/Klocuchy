@@ -23,7 +23,7 @@ public:
     void Show();
     void SetPosition(int x, int y);
     bool Collides(Tetramino *tetramino);
-    void Adapt(Tetramino *tetramino);
+    bool Adapt(Tetramino *tetramino);
     int Check();
 
 protected:

@@ -64,19 +64,23 @@ bool Tetrion::Collides(Tetramino *tetramino)
     {
         for (int j = 0; j < 4; ++j)
         {
-            if (tetramino->At(i, j)->GetColor() != Tile::None &&
-                    _tetrion[i+dx][j+dy].GetColor() != Tile::None)
-                return true;
+            if (tetramino->At(i, j)->GetColor() != Tile::None)
+            {
+                if (i+dx < 0 || i+dy >= TilesInRow ||
+                    j+dy < 0 || j+dy >= TilesInCol)
+                    return true;
+                else if (_tetrion[i+dx][j+dy].GetColor() != Tile::None)
+                    return true;
+            }
         }
     }
 
     return false;
 }
 
-void Tetrion::Adapt(Tetramino *tetramino)
+bool Tetrion::Adapt(Tetramino *tetramino)
 {
-    // Does not check collisions.
-    // Who cares... xD
+    // If tetramino is out of tetrion then game is over.
     int dx = tetramino->GetX();
     int dy = tetramino->GetY();
 
@@ -84,9 +88,15 @@ void Tetrion::Adapt(Tetramino *tetramino)
     {
         for (int j = 0; j < 4; ++j)
         {
+            if (tetramino->At(i, j)->GetColor() == Tile::None)
+                continue;
+            if (j+dy < 0)
+                return false; // Game over. No room for new tetramino.
             _tetrion[i+dx][j+dy].SetColor(tetramino->At(i, j)->GetColor());
         }
     }
+
+    return false;
 }
 
 int Tetrion::Check()
