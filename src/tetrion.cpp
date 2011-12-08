@@ -131,7 +131,7 @@ int Tetrion::Check()
     score = rows.size()*rows.size();
 
     if (!score)
-        return;
+        return score;
 
     // Mark tiles.
     for (unsigned int i = 0; i < rows.size(); ++i)
@@ -165,4 +165,11 @@ void Tetrion::RemoveRow(int row)
     // Set highest row as Tile::None color.
     for (int i = 0; i < TilesInRow; ++i)
         _tetrion[i][0].SetColor(Tile::None);
+}
+
+void Tetrion::Clear()
+{
+    for (int i = 0; i < TilesInRow; ++i)
+        for (int j = 0; j < TilesInCol; ++j)
+            _tetrion[i][j].SetColor(Tile::None);
 }
