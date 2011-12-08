@@ -7,6 +7,7 @@ CONFIG -= qt
 
 OBJECTS_DIR = tmp
 
+win32:LIBS += SDLmain
 LIBS += -lSDL -lSDL_image -lSDL_ttf
 
 # Input
@@ -22,7 +23,8 @@ SOURCES += src/main.cpp \
     src/frame.cpp \
     src/tetramino.cpp \
     src/nextview.cpp \
-    src/tetrion.cpp
+    src/tetrion.cpp \
+    src/scoreview.cpp
 
 HEADERS += \
     src/klocuchy.h \
@@ -37,7 +39,8 @@ HEADERS += \
     src/frame.h \
     src/tetramino.h \
     src/nextview.h \
-    src/tetrion.h
+    src/tetrion.h \
+    src/scoreview.h
 
 
 
