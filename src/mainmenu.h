@@ -28,6 +28,7 @@ public:
 
     bool Initialize();
     ButtonID Exec();
+    void EnableResume(bool enable);
 
 protected:
     Button *CreateButton(std::string text, int x, int y);

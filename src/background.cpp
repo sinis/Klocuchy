@@ -7,7 +7,7 @@ Background::Background():
     _sprite(0),
     _screen(Klocuchy::Instance()->Screen()),
     _frame(0),
-    _frames(0),
+    _frames(1),
     _width(0),
     _height(0),
     _x(0), _y(0),

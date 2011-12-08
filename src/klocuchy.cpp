@@ -10,7 +10,8 @@ Klocuchy *Klocuchy::_instance = 0;
 Klocuchy::Klocuchy():
     _screen(0),
     _gameData(0),
-    _mainMenu(0)
+    _mainMenu(0),
+    _game(0)
 {
     _instance = this;
 }
@@ -98,19 +99,20 @@ bool Klocuchy::InitGame()
     if (!_mainMenu->Initialize())
         return false;
 
-    // TODO:
-    // Game
+    _game = new Game;
 
     return true;
 }
 
 void Klocuchy::UnloadGame()
 {
-    // TODO:
-    // Game
-
     delete _mainMenu;
     delete _gameData;
+    delete _game;
+
+    _mainMenu = 0;
+    _gameData = 0;
+    _game = 0;
 }
 
 void Klocuchy::Unload()
@@ -131,8 +133,10 @@ int Klocuchy::Exec()
         switch (_mainMenu->Exec())
         {
         case MainMenu::Start:
+            _game->Start();
             break;
         case MainMenu::Resume:
+            _game->Resume();
             break;
         case MainMenu::Highscore:
             break;
@@ -143,6 +147,16 @@ int Klocuchy::Exec()
             break;
         default:
             // Pfrh, warnings.
+            break;
+        }
+
+        switch (_game->GetState())
+        {
+        case Game::Paused:
+            _mainMenu->EnableResume(true);
+            break;
+        default:
+            _mainMenu->EnableResume(false);
             break;
         }
     }

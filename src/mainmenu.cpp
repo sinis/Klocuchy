@@ -206,3 +206,8 @@ MainMenu::ButtonID MainMenu::OnMouseClick(int x, int y)
 
     return id;
 }
+
+void MainMenu::EnableResume(bool enable)
+{
+    _resume->SetEnabled(enable);
+}
