@@ -130,6 +130,9 @@ int Tetrion::Check()
     // Set score.
     score = rows.size()*rows.size();
 
+    if (!score)
+        return;
+
     // Mark tiles.
     for (unsigned int i = 0; i < rows.size(); ++i)
         for (int j = 0; j < TilesInCol; ++j)
