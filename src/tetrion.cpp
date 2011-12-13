@@ -69,7 +69,7 @@ bool Tetrion::Collides(Tetramino *tetramino)
                 if (i+dx < 0 || i+dx >= TilesInRow ||
                     j+dy < 0 || j+dy >= TilesInCol)
                     return true;
-                else if (_tetrion[i+dx][j+dy].GetColor() != Tile::None)
+                else if (_tetrion[i][j].GetColor() != Tile::None)
                     return true;
             }
         }
