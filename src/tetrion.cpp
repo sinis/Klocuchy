@@ -98,7 +98,7 @@ bool Tetrion::Adapt(Tetramino *tetramino)
         }
     }
 
-    return false;
+    return true;
 }
 
 int Tetrion::Check()

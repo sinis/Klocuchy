@@ -16,12 +16,14 @@ void Timer::Start()
 
 bool Timer::Finished()
 {
+    bool ret = false;
     if (_state == Started)
     {
-        _state = Idle;
-        return ((_lastTick + _interval) <= SDL_GetTicks());
+        ret = ((_lastTick + _interval) <= SDL_GetTicks());
     }
-    else return false;
+
+    _state = (ret ? Idle : Started);
+    return ret;
 }
 
 void Timer::Pause()
@@ -38,5 +40,7 @@ void Timer::Resume()
 
 int Timer::Elapsed()
 {
-    return SDL_GetTicks() - _lastTick;
+    if (_state != Idle)
+        return SDL_GetTicks() - _lastTick;
+    return 0;
 }

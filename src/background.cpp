@@ -30,6 +30,7 @@ void Background::SetSprite(std::string fileName, int frames, int width, int heig
     _height = height;
 
     _timer.SetInterval(_interval/_frames);
+    _timer.Start();
 }
 
 void Background::SetPosition(int x, int y)
