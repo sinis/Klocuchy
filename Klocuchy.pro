@@ -7,7 +7,7 @@ CONFIG -= qt
 
 OBJECTS_DIR = tmp
 
-win32:LIBS += SDLmain
+win32:LIBS += -lSDLmain
 LIBS += -lSDL -lSDL_image -lSDL_ttf
 
 # Input

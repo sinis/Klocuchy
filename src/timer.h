@@ -4,6 +4,12 @@
 class Timer
 {
 public:
+    enum State{
+        Idle,
+        Started,
+        Paused
+    };
+
     Timer(int interval = 0);
 
     void SetInterval(int interval) { _interval = interval; }
@@ -19,6 +25,7 @@ private:
     int _interval;
     int _lastTick;
     int _pausedAt;
+    State _state;
 };
 
 #endif // TIMER_H
