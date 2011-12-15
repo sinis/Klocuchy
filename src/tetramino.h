@@ -35,6 +35,7 @@ public:
     int GetX() const { return _x; }
     int GetY() const { return _y; }
     void Reset();
+    void SetOffset(int x, int y);
 
 protected:
     void SetShape(Shape shape);
@@ -45,6 +46,8 @@ private:
     Tile **_tiles;
     int _x;
     int _y;
+    int _xOffset;
+    int _yOffset;
 };
 
 #endif // TETRAMINO_H

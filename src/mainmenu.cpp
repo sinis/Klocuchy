@@ -3,8 +3,6 @@
 #include "defines.h"
 #include "timer.h"
 
-#include <iostream>
-
 MainMenu::MainMenu():
     _screen(0),
     _start(0),
@@ -119,9 +117,7 @@ MainMenu::ButtonID MainMenu::Exec()
         }
         else
         {
-            int t = Second/MenuFPS - timer.Elapsed();
-            std::cerr << "t " << t << std::endl;
-            SDL_Delay(t);
+            SDL_Delay(Second/MenuFPS - timer.Elapsed());
         }
     }
 
@@ -152,8 +148,6 @@ void MainMenu::Show()
 
 void MainMenu::OnMouseMotion(int x, int y)
 {
-    std::cerr << "MainMenu::OnMouseMotion\n";
-
     if (_start->IsMouseOver(x, y))
         _start->OnMouseOver();
     else _start->OnMouseOut();
@@ -177,8 +171,6 @@ void MainMenu::OnMouseMotion(int x, int y)
 
 MainMenu::ButtonID MainMenu::OnMouseClick(int x, int y)
 {
-    std::cerr << "MainMenu::OnMouseClick\n";
-
     ButtonID id = None;
 
     if (_start->IsEnabled() && _start->IsMouseOver(x, y))

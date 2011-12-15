@@ -60,19 +60,18 @@ bool Tetrion::Collides(Tetramino *tetramino)
     int dx = tetramino->GetX();
     int dy = tetramino->GetY();
 
-    if (dx < 0 || dx > TilesInRow)
-        return true;
-    if (dy > TilesInCol-4)
-        return true;
-
     for (int i = 0; i < 4; ++i)
     {
         for (int j = 0; j < 4; ++j)
         {
-            if ((tetramino->At(i, j)->GetColor() != Tile::None) &&
-                (_tetrion[dx+i][dy+j].GetColor() != Tile::None))
+            if (tetramino->At(i, j)->GetColor() != Tile::None)
             {
-                return true;
+                if (dx + i < 0 || dx+i >= TilesInRow)
+                    return true;
+                if (dy + j >= TilesInCol)
+                    return true;
+                if (_tetrion[dx+i][dy+j].GetColor() != Tile::None)
+                    return true;
             }
         }
     }
