@@ -14,6 +14,8 @@ public:
 
     void SetInterval(int interval) { _interval = interval; }
     int GetInterval() const { return _interval; }
+    void SetState(State state) { _state = state; }
+    State GetState() const { return _state; }
 
     void Start();
     bool Finished();

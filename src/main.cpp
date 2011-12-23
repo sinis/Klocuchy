@@ -7,7 +7,7 @@ int main(int, char **)
     Klocuchy klocuchy;
     int ret;
 
-    srand(time(0));
+    srand((int)time(0));
 
     if (!klocuchy.Initialize())
         return -1;

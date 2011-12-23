@@ -19,7 +19,7 @@ bool Timer::Finished()
     bool ret = false;
     if (_state == Started)
     {
-        ret = ((_lastTick + _interval) <= SDL_GetTicks());
+        ret = ((_lastTick + _interval) <= (int)SDL_GetTicks());
     }
 
     _state = (ret ? Idle : Started);

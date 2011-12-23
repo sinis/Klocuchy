@@ -71,8 +71,10 @@ void Game::Play()
     SDL_Event event;
     bool play = true;
     bool inMove = false;
+    bool moved;
     Tetramino::Direction dir, undo;
     Timer fps;
+    Timer moveTimer(150);
     fps.SetInterval(1000/FPS);
 
     fps.Start();
@@ -101,14 +103,20 @@ void Game::Play()
                     break;
                 case SDLK_LEFT:
                     inMove = true;
+                    moved = false;
+                    moveTimer.Start();
                     dir = Tetramino::Left;
                     break;
                 case SDLK_RIGHT:
                     inMove = true;
+                    moved = false;
+                    moveTimer.Start();
                     dir = Tetramino::Right;
                     break;
                 case SDLK_SPACE:
                     inMove = true;
+                    moved = false;
+                    moveTimer.Start();
                     dir = Tetramino::Down;
                 case SDLK_p:
                     Pause();
@@ -133,8 +141,9 @@ void Game::Play()
         }
 
         // Move tetramino, if user wants it.
-        if (inMove)
+        if (inMove && (!moved || moveTimer.GetState() == Timer::Idle || moveTimer.Finished()))
         {
+            moved = true;
             _current->Move(dir);
             switch (dir)
             {
@@ -154,6 +163,7 @@ void Game::Play()
             {
                 _current->Move(undo);
                 inMove = false;
+                moveTimer.SetState(Timer::Idle);
             }
         }
 
