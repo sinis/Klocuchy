@@ -113,12 +113,12 @@ int Tetrion::Check()
     bool full;
 
     // Find filled.
-    for (int i = 0; i < TilesInRow; ++i)
+    for (int i = 0; i < TilesInCol; ++i)
     {
         full = true;
-        for (int j = 0; j < TilesInCol; ++j)
+        for (int j = 0; j < TilesInRow; ++j)
         {
-            if (_tetrion[i][j].GetColor() == Tile::None)
+            if (_tetrion[j][i].GetColor() == Tile::None)
             {
                 full = false;
                 break;
@@ -136,15 +136,15 @@ int Tetrion::Check()
 
     // Mark tiles.
     for (unsigned int i = 0; i < rows.size(); ++i)
-        for (int j = 0; j < TilesInCol; ++j)
-            _tetrion[rows[i]][j].SetColor(Tile::White);
+        for (int j = 0; j < TilesInRow; ++j)
+            _tetrion[j][rows[i]].SetColor(Tile::White);
 
     // Show them.
     Show();
     SDL_Delay(100);
 
     // And remove.
-    for (unsigned int i = 0; i < rows.size(); ++i)
+    for (int i = (int)rows.size()-1; i >= 0; --i)
     {
         RemoveRow(rows[i]);
     }
