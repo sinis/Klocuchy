@@ -27,15 +27,17 @@ void Tetramino::Show()
     Show(_x, _y);
 }
 
-void Tetramino::Show(int x, int y)
+void Tetramino::Show(int x, int y, int xOffset, int yOffset)
 {
     for (int i = 0; i < 4; ++i)
     {
         for (int j = 0; j < 4; ++j)
         {
             if (_tiles[i][j].GetColor() != Tile::None)
-                _tiles[i][j].Show(Tile::Size * (i + x)+_xOffset,
-                                  Tile::Size * (j + y)+_yOffset);
+            {
+                _tiles[i][j].Show(Tile::Size * (i + x)+xOffset,
+                                  Tile::Size * (j + y)+yOffset);
+            }
         }
     }
 }

@@ -91,7 +91,7 @@ bool Tetrion::Adapt(Tetramino *tetramino)
         {
             if (tetramino->At(i, j)->GetColor() == Tile::None)
                 continue;
-            if (j+dy < 0)
+            if (_tetrion[i+dx][j+dy].GetColor() != Tile::None)
                 return false; // Game over. No room for new tetramino.
             _tetrion[i+dx][j+dy].SetColor(tetramino->At(i, j)->GetColor());
         }

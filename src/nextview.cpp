@@ -29,5 +29,5 @@ void NextView::SetPosition(int x, int y)
 void NextView::Show()
 {
     _frame->Show();
-    _tetramino->Show(_x, _y);
+    _tetramino->Show(0, 0, _x, _y);
 }
