@@ -99,7 +99,7 @@ void Tetramino::SetShape(Shape shape)
         _tiles[1][0].SetColor(Tile::Red);
         _tiles[2][0].SetColor(Tile::Red);
         _tiles[1][1].SetColor(Tile::Red);
-        _tiles[1][2].SetColor(Tile::Red);
+        _tiles[2][1].SetColor(Tile::Red);
     }
     else if (shape == S)
     {
@@ -115,7 +115,7 @@ void Tetramino::SetShape(Shape shape)
         _tiles[3][0].SetColor(Tile::Grey);
         _tiles[2][1].SetColor(Tile::Grey);
     }
-    else
+    else // Z
     {
         _tiles[1][0].SetColor(Tile::Yellow);
         _tiles[2][0].SetColor(Tile::Yellow);

@@ -135,16 +135,17 @@ int Tetrion::Check()
         return score;
 
     // Mark tiles.
-    for (unsigned int i = 0; i < rows.size(); ++i)
+    for (int i = 0; i < (int)rows.size(); ++i)
         for (int j = 0; j < TilesInRow; ++j)
             _tetrion[j][rows[i]].SetColor(Tile::White);
 
     // Show them.
     Show();
+    SDL_Flip(_screen);
     SDL_Delay(100);
 
     // And remove.
-    for (int i = (int)rows.size()-1; i >= 0; --i)
+    for (int i = 0; i < (int)rows.size(); ++i)
     {
         RemoveRow(rows[i]);
     }
