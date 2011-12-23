@@ -46,6 +46,7 @@ void Tetramino::Move(Direction dir)
 {
     switch (dir)
     {
+    case Up: --_y; break;
     case Down: ++_y; break;
     case Left: --_x; break;
     case Right: ++_x; break;
