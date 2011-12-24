@@ -92,14 +92,14 @@ void Game::Play()
                     Pause();
                     break;
                 case SDLK_UP:
-                    _current->Rotate(Tetramino::Left);
-                    if (_tetrion->Collides(_current))
-                        _current->Rotate(Tetramino::Right);
-                    break;
-                case SDLK_DOWN:
                     _current->Rotate(Tetramino::Right);
                     if (_tetrion->Collides(_current))
                         _current->Rotate(Tetramino::Left);
+                    break;
+                case SDLK_DOWN:
+                    _current->Rotate(Tetramino::Left);
+                    if (_tetrion->Collides(_current))
+                        _current->Rotate(Tetramino::Right);
                     break;
                 case SDLK_LEFT:
                     inMove = true;

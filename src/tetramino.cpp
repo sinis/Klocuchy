@@ -126,7 +126,7 @@ void Tetramino::SetShape(Shape shape)
 
 void Tetramino::Rotate(Direction dir)
 {
-    if (dir == Down)
+    if (dir != Right && dir != Left)
         return;
 
     Tile::Color color[4][4];
@@ -134,23 +134,45 @@ void Tetramino::Rotate(Direction dir)
     // Copy colors to temporary matrix.
     if (dir == Left)
     {
+        // Outer-upper -> outer-left
         for (int i = 0; i < 4; ++i)
-        {
-            for (int j = 0; j < 4; ++j)
-            {
-                color[i][3-j] = _tiles[j][i].GetColor();
-            }
-        }
+            color[0][3-i] = _tiles[i][0].GetColor();
+        // Outer-right -> outer-upper
+        for (int i = 1; i < 4; ++i)
+            color[i][0] = _tiles[3][i].GetColor();
+        // Outer-bottom -> outer-right
+        for (int i = 0; i < 3; ++i)
+            color[3][3-i] = _tiles[i][3].GetColor();
+        // Outer-left -> outer-bottom
+        for (int i = 1; i < 3; ++i)
+            color[i][3] = _tiles[0][i].GetColor();
+
+        // Inner-***
+        color[1][2] = _tiles[1][1].GetColor();
+        color[2][2] = _tiles[1][2].GetColor();
+        color[1][1] = _tiles[2][1].GetColor();
+        color[2][1] = _tiles[2][2].GetColor();
     }
-    else
+    else // Right
     {
+        // Outer-upper -> outer-right
         for (int i = 0; i < 4; ++i)
-        {
-            for (int j = 0; j < 4; ++j)
-            {
-                color[3-i][3-i] = _tiles[j][i].GetColor();
-            }
-        }
+            color[3][i] = _tiles[i][0].GetColor();
+        // Outer-right -> outer-bottom
+        for (int i = 1; i < 4; ++i)
+            color[3-i][3] = _tiles[3][i].GetColor();
+        // Outer-bottom -> outer-left
+        for (int i = 0; i < 3; ++i)
+            color[0][i] = _tiles[i][3].GetColor();
+        // Outer-left -> outer-upper
+        for (int i = 1; i < 3; ++i)
+            color[3-i][0] = _tiles[0][i].GetColor();
+
+        // Inner-***
+        color[2][1] = _tiles[1][1].GetColor();
+        color[2][2] = _tiles[2][1].GetColor();
+        color[1][2] = _tiles[2][2].GetColor();
+        color[1][1] = _tiles[1][2].GetColor();
     }
 
     // Copy colors back to tetramino.
